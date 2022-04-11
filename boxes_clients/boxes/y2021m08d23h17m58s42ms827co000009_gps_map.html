@@ -1,0 +1,20 @@
+<p style="color: #00ff00">
+  // exemple de webapp \\<br>
+  // un autre GPS... \\<br>
+</p><p style="color: #00ff00">// v0.2 \\</p><p style="color: #00ff00"><br></p><div style="line-height: 26px;"><br></div><div style="line-height: 26px;">zoom = .0025</div><div style="line-height: 26px;"><br></div><div style="line-height: 26px;">let displayMap = function(lat,long,zoom)</div><div style="line-height: 26px;">{</div><p style="line-height: 26px;">let iframe = `&lt;iframe id="inlineFrameExample"</p><p style="line-height: 26px;">title="Inline Frame Example"</p><p style="line-height: 26px;">width=100%</p><p style="line-height: 26px;">height="600"</p><p style="line-height: 26px;">style="border:none"</p><p style="line-height: 26px;">src="https://www.openstreetmap.org/export/embed.html?bbox= ${long-zoom}%2C${lat-zoom}%2C&nbsp;${long+zoom}%2C&nbsp;${lat+zoom}&amp;layer=mapnik"&gt;</p><p style="line-height: 26px;">&lt;/iframe&gt;`</p><p style="line-height: 26px;"><br style="line-height: 26px;"></p><p style="line-height: 26px;">addBox('gpsMap',myId)</p><p style="line-height: 26px;">setText('gpsMap',iframe)</p><p style="line-height: 26px;">}</p>
+<br>
+<p>addBox(‘gpsPos’,myId)</p>
+<p>setText(‘gpsPos’,‘GPS TRACKER&lt;br&gt;’)</p>
+<p>navigator.</p>
+<p>geolocation.</p>
+<p>watchPosition(</p>
+<p>function(position)</p>
+<p>{</p><p>let long = position.coords.longitude; let lat = &nbsp;position.coords.latitude;</p>
+<p>setText(‘gpsPos’,</p>
+<p></p>
+<p>lat + ‘&lt;br&gt;‘&nbsp;</p>
+<p>+ long</p>
+<p>+ ‘&lt;br&gt;’);</p><p>displayMap(lat,long,zoom);</p>
+<p>}</p>
+<p>);</p><p><br></p><p>addBox(‘zoom’,’gpsPos’)</p><p>setText(‘zoom’,’// régler le zoom ici :&lt;br&gt;zoom=.0025’)</p>
+<p></p>

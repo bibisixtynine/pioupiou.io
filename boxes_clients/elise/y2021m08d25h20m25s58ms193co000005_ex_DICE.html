@@ -1,0 +1,39 @@
+<p style="color: #00ff00">
+  // exemple de webapp \\<br />
+  // lancé de dés de 6 \\
+</p>
+<p><br /></p>
+<p>nbDice = 5</p>
+<p><br /></p>
+<p>addBox('DICE',myId)</p>
+<p><br /></p>
+<p>
+  let sL = `&lt;span style='font-size:80px; background-color:white; color:black;
+  border-radius:10px; font-weight:900'&gt;`
+</p>
+<p><br /></p>
+<p>let sR = `&lt;/span&gt;`</p>
+<p><br /></p>
+<p>let throwDice = function() {</p>
+<p>setText(‘DICE’,'')</p>
+<p>for (i=0;i&lt;nbDice;i++)</p>
+<p>appendText( ‘DICE’,</p>
+<p>sL</p>
+<p>+rnd(1,6)+sR+’ ') }</p>
+<p><br /></p>
+<p>clearAllTimers()</p>
+<p style="line-height: 26px;">let timer = setTimer(throwDice,66)</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">let stopTimer = function() {</p>
+<p style="line-height: 26px;">clearTimeout(timer)}</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">setTimeout(clearAllTimers, 2000)</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p><br /></p>
+<br />
+<p style="color: #00ff00">
+  // appuyer sur <span class="greenBackground">EXEC</span> en bas à gauche de la
+  <span class="greenBackground">BOX</span> puis faire défiler pour voir le
+  résultat dans la <span class="greenBackground">BOX</span> <b>DICE</b> plus
+  loin dans ce fil
+</p>

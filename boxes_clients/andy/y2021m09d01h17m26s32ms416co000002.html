@@ -1,0 +1,107 @@
+<p style="line-height: 26px; color: rgb(0, 255, 0);">
+  // exemple de webapp \\<br style="line-height: 26px;" />// lancé de dés de 6
+  \\
+</p>
+<div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+<p style="line-height: 26px;">Box = class&nbsp;{</p>
+<div style="line-height: 26px;">
+  <br style="line-height: 26px;" />constructor(name)&nbsp;{
+</div>
+<div style="line-height: 26px;">this.setStyle(‘color:white’)</div>
+<div style="line-height: 26px;">this.name = name</div>
+<div style="line-height: 26px;">addBox(name,&nbsp;myId)</div>
+<div style="line-height: 26px;">setText(name,'') }</div>
+<div style="line-height: 26px;">
+  <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+  <div style="line-height: 26px;">log(txt) {</div>
+  <div style="line-height: 26px;">add(txt+'&lt;br&gt;') }<br /></div>
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;">
+      <div style="line-height: 26px;"><br /></div>
+      <div style="line-height: 26px;">
+        <div style="line-height: 26px;">add(txt) {</div>
+        <div style="line-height: 26px;">
+          let open =`&lt;span ${this.style}&gt;`
+        </div>
+        <div style="line-height: 26px;">let close =`&lt;/span&gt;`</div>
+        <div style="line-height: 26px;">
+          <div style="line-height: 26px;">
+            <div style="line-height: 26px;">
+              appendText(this.name, open+txt+close) }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+  <div style="line-height: 26px;">clear() {</div>
+  <div style="line-height: 26px;">setText(this.name,’’) }</div>
+  <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+  <div style="line-height: 26px;">setStyle(style) {</div>
+  <div style="line-height: 26px;">this.style =`</div>
+  <div style="line-height: 26px;">style=“${style}”` }</div>
+  <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;">addButton(caption,code)&nbsp;{</div>
+    <div style="line-height: 26px;">
+      <div style="line-height: 26px;">let onclick =`onclick=“${code}”`</div>
+      <div style="line-height: 26px;">
+        let span = `&lt;span ${this.style}
+        ${onclick}&gt;${caption}&lt;/span&gt;`
+      </div>
+      <div style="line-height: 26px;">appendText(this.name,span) }</div>
+    </div>
+  </div>
+  <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;">}<br style="line-height: 26px;" /></div>
+  </div>
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;"><br style="line-height: 26px;" /></div>
+    <div style="line-height: 26px;"><br /></div>
+  </div>
+</div>
+<p style="line-height: 26px;">let dice = function(digit) {</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">
+  let sL = `&lt;span style='font-size:80px; background-color:white; color:black;
+  border-radius:10px; font-weight:900'&gt;`<br />
+</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">let txt = digit</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">let sR = `&lt;/span&gt;`<br /></p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">return sL+txt+sR }</p>
+<p style="line-height: 26px;"><br /></p>
+<p style="line-height: 26px;">nbDice = 5</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<div style="line-height: 26px;">
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;">box =</div>
+    <div style="line-height: 26px;">new Box(‘DICE’)</div>
+  </div>
+</div>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">
+  let sL = `&lt;span style='font-size:80px; background-color:white; color:black;
+  border-radius:10px; font-weight:900'&gt;`
+</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">let sR = `&lt;/span&gt;`</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">let throwDice = function() {</p>
+<p style="line-height: 26px;">box.clear()</p>
+<p style="line-height: 26px;">for (i=0;i&lt;nbDice;i++)</p>
+<p style="line-height: 26px;">box.add(</p>
+<p style="line-height: 26px;">dice(rnd(1,6))+' ' )}</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">clearAllTimers()</p>
+<p style="line-height: 26px;">let timer = setTimer(throwDice,66)</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">let stopTimer = function() {</p>
+<p style="line-height: 26px;">clearTimeout(timer)}</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>
+<p style="line-height: 26px;">setTimeout(clearAllTimers, 2000)</p>
+<p style="line-height: 26px;"><br style="line-height: 26px;" /></p>

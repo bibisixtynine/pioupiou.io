@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  line-height: 130%;
+}
+
+body {
+  font-family: monospace;
+  font-size: 20px;
+  background-color: black;
+  color: lime;
+/*  background-image: url("https://cdn.glitch.com/5a38bd01-dcd2-45b1-8445-e9d42d74ccf8%2F77826bad-563e-42f2-9e1b-452992940ebc.image.jpeg?v=1628349143012"); */
+/*  background-size: cover; */
+/*  background-attachment: fixed; */
+}
+
+h1 {
+  color: orange;
+  text-align: center;
+  padding: 40px 0 0;
+}
+
+.pioupiouButton {
+  background-color:yellow; color:black; border-radius:7px; padding:0 5px; margin:5px 5px; min-width:40px; font-weight:600;
+}
+
+.pouipouiButton {
+  background-color:lime; color:black; border-radius:7px; padding:0 5px; margin:0 5px; min-width:60px; font-weight:600;
+}
+
+.disable-select {
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+/*
+iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width:100%;
+  border: 0;
+}
+*/
+
+.invisible {
+  display: none;
+}
+
+.toolbar {
+  display: none; /*flex*/
+  overflow: scroll;
+}
+
+.pioupiou {
+  background-color:black; 
+  color : yellow;
+  font-weight: 900;
+  position:sticky;
+  position:-webkit-sticky;
+  top:0px;
+  padding: 25px 10px 10px;
+  z-index: 99999;
+  
+}
+
+.pioupiou .underline {
+  font-size: 10px;
+  color: grey;
+}
+
+
+
+.asciiArt {
+  display: flex;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  overflow: scroll;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+/* ---- box ---- */
+
+.box {
+  color: #CCCCCC;
+  background-color: #000000BB;
+  padding: 0px;
+  margin: 30px 10px;
+  border-radius: 10px;
+  border: solid 2px;
+  border-color: green;
+}
+
+
+
+.editable {
+  max-height: 600px;
+  overflow: hidden;  
+}
+
+.editable:focus {
+  overflow:scroll;
+}
+
+.boxError {
+  color: #CCCCCC;
+  background-color: #000000;
+  padding: 0px;
+  margin: 30px 10px;
+  border-radius: 10px;
+  border: solid 5px;
+  border-color: red;
+}
+
+.greenBackground {
+  background-color: green;
+  color: black;
+  padding: 0 10px;
+  font-weight: bolder;
+  border-radius: 10px;
+}
+
+.greenBackground:hover {
+  color:white;
+}
+
+.boxTop {
+  background-color: black;
+  color: lime;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0;
+  padding: 3px 8px;
+}
+
+.boxTop .closeBoxButton {
+  float:right;
+}
+
+.boxTop .saveButton {
+  float:left;
+}
+
+.boxTop .closeBoxButton:hover {
+  color:white;
+}
+
+.boxTop .saveButton:hover {
+  color:white;
+}
+
+.boxFooter {
+  background-color: black;
+  color: lime;
+  font-weight: bold;
+  border-radius: 0 0 8px 8px;
+  padding: 3px 8px;
+}
+
+.boxFooter .addBoxButton {
+  float:right;
+}
+
+.boxFooter .execButton {
+  float:left;
+}
+
+.boxFooter .addBoxButton:hover {
+  color:white;
+}
+
+.boxFooter .execButton:hover {
+  color:white;
+}
+
+
+
+.box:hover {
+  background-color: #000000FF;
+  border: solid 2px;
+  border-color: lime;
+  /*box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)*/
+}
+
+/* ---- buttons ---- */
+
+.button:hover {
+  color: lime;
+}
+
+.button:active {
+  color: white;
+}
+
+/* ---- contenteditable ---- */
+
+[contenteditable] {
+  outline: 0px solid transparent;
+}
+
+
+/* ---------- messaging ios like ---------- */
+
+.sendMessage {
+  display: flex;
+  margin: 10px;
+  font-family: helvetica;
+}
+
+.sendButton {
+  float: right;
+  color: #0085D1;
+  padding: 6px;
+  margin-left: 5px;
+}
+
+.messageBox {
+  flex-grow: 1;
+  color: #CCCCCC;
+  background-color: #000000BB;
+  padding: 6px;
+
+  border-radius: 20px;
+  border: solid 2px;
+  border-color: #0085D1;
+}
+
+.chat {
+  background-color: black;
+  color: #DDDDDD;
+  font-family: helvetica;
+  flex-direction: column;
+  padding: 10px;
+  margin:0 10px;
+}
+
+.date {
+  margin-top: 20px;
+  color:white;
+  font-size: 12px;
+}
+
+.messages {
+  margin-top: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  border-radius: 20px;
+  padding: 8px 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.yours {
+  align-items: flex-start;
+}
+
+.yours .message {
+  margin-right: 25%;
+  background-color: #332222;
+  position: relative;
+}
+
+.yours .message.last:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  left: -7px;
+  height: 20px;
+  width: 20px;
+  background: #332222;
+  border-bottom-right-radius: 15px;
+}
+.yours .message.last:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: -10px;
+  width: 10px;
+  height: 20px;
+  background: black;
+  border-bottom-right-radius: 10px;
+}
+
+.mine {
+  align-items: flex-end;
+}
+
+.mine .message {
+  color: white;
+  margin-left: 25%;
+  background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+  background-attachment: fixed;
+  position: relative;
+}
+
+.mine .message.last:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  bottom: 0;
+  right: -8px;
+  height: 20px;
+  width: 20px;
+  background: linear-gradient(to bottom, #00D0EA 0%, #0085D1 100%);
+  background-attachment: fixed;
+  border-bottom-left-radius: 15px;
+}
+
+.mine .message.last:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  right: -10px;
+  width: 10px;
+  height: 20px;
+  background: black;
+  border-bottom-left-radius: 10px;
+}

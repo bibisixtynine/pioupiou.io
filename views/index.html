@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>pioupiou.io</title>
+    <meta charset="utf-8" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://cdn.glitch.com/fd9e84f4-4370-493a-847e-22cebb631384%2Fbabyduck.webp?v=1628793057158"
+      type="image/x-icon"
+    />
+
+    <!-- apple specifif meta tags to allow acceptable pwa behaviour-->
+    <meta
+      name="viewport"
+      content="viewport-fit=cover,user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.glitch.com/fd9e84f4-4370-493a-847e-22cebb631384%2Fbabyduck.webp?v=1628793057158"
+    />
+
+    <!-- stylesheet-->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- javascript client code-->
+    <script src="client.js" defer></script>
+
+    <!-- libs-->
+
+    <!-- sweetalert 2.1.2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- socket.io 4.1.3 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.3/socket.io.js"></script>
+
+    <!-- codemirror 5.35.0 -->
+    <!--script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.35.0/codemirror.js"></script>
+    <script src="https://codemirror.net/mode/javascript/javascript.js"></script-->
+
+    <!-- mapbox.com 2.3.1 -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js"></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+
+    <!-- lotties -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+    <script>
+      smiley = function(event) {
+        console.log(event);
+        event.srcElement.style = "font-size:6px; text-align:left; color:red";
+        setTimeout(function() {
+          event.srcElement.style =
+            "font-size:6px; text-align:left; color:yellow";
+        }, 300);
+      };
+
+      tank = function(event) {
+        console.log(event);
+        event.srcElement.style =
+          "font-size:6px; text-align:left; color:PapayaWhip";
+        setTimeout(function() {
+          event.srcElement.style = "font-size:6px; text-align:left; color:lime";
+        }, 300);
+      };
+
+      horse = function(event) {
+        console.log(event);
+        event.srcElement.style = "font-size:6px; text-align:left; color:orange";
+        setTimeout(function() {
+          event.srcElement.style =
+            "font-size:6px; text-align:left; color:white";
+        }, 300);
+      };
+
+      obelix = function(event) {
+        console.log(event);
+        event.srcElement.style = "font-size:6px; text-align:left; color:lime";
+        setTimeout(function() {
+          event.srcElement.style = "font-size:6px; text-align:left; color:cyan";
+        }, 300);
+      };
+
+      andy = function(event) {
+        console.log(event);
+        event.srcElement.style =
+          "font-size:40px; text-align:left; color:yellow";
+        setTimeout(function() {
+          event.srcElement.style =
+            "font-size:40px; text-align:left; color:PapayaWhip";
+        }, 300);
+      };
+    </script>
+  </head>
+
+  <body>
+    <div class="pioupiou">
+      <span
+        onClick="document.body.style.backgroundColor='red'; location.reload()"
+        class="pioupiouButton"
+        style="float:left; background-color:red"
+        >RELOAD</span
+      >
+      <span onclick="onPioupiou()">>(°< °)<</span>
+      <span
+        onClick="document.body.style.backgroundColor='yellow'; localStorage.pioupiouName='helpme'; location.reload()"
+        class="pioupiouButton"
+        style="float:right;"
+        >HELP</span
+      >
+      <div class="underline" id="pioupiouId" style="overflow:auto">
+        pioupiou.io
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <span class="pouipouiButton">MSG</span>
+      <span class="pouipouiButton">XBOX</span>
+      <span class="pouipouiButton">LOAD</span>
+      <span class="pouipouiButton">SAVE</span>
+      <span class="pouipouiButton">EDIT</span>
+      <span class="pouipouiButton">ERASE</span>
+      <span class="pouipouiButton">PRINT</span>
+      <span class="pouipouiButton">REMIX</span>
+    </div>
+
+    <div class="asciiArt">
+      <pre
+        id="smiley"
+        style="font-size:6px; text-align:left; color:yellow"
+        onclick="smiley(event)"
+      >
+
+
+
+
+
+
+
+
+                          oooo$$$$$$$$$$$$oooo
+                      oo$$$$$$$$$$$$$$$$$$$$$$$$o
+                   oo$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o         o$   $$ o$
+   o $ oo        o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$o       $$ $$ $$o$
+oo $ $ "$      o$$$$$$$$$    $$$$$$$$$$$$$    $$$$$$$$$o       $$$o$$o$
+"$$$$$$o$     o$$$$$$$$$      $$$$$$$$$$$      $$$$$$$$$$o    $$$$$$$$
+  $$$$$$$    $$$$$$$$$$$   o  $$$$$$$$$$$   o  $$$$$$$$$$$$$$$$$$$$$$$
+  $$$$$$$$$$$$$$$$$$$$$$$    $$$$$$$$$$$$$    $$$$$$$$$$$$$$  """$$$
+   "$$$""""$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     "$$$
+    $$$   o$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     "$$$o
+   o$$"   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$       $$$o
+   $$$    $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$" "$$$$$$ooooo$$$$o
+  o$$$oooo$$$$$  $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$   o$$$$$$$$$$$$$$$$$
+  $$$$$$$$"$$$$   $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$     $$$$""""""""
+ """"       $$$$    "$$$$$$$$$$$$$$$$$$$$$$$$$$$$"      o$$$
+            "$$$o     """$$$$$$$$$$$$$$$$$$"$$"         $$$
+              $$$o          "$$""$$$$$$""""           o$$$
+               $$$$o                                o$$$"
+                "$$$$o      o$$$$$$o"$$$$o        o$$$$
+                  "$$$$$oo     ""$$$$o$$$$$o   o$$$$""
+                     ""$$$$$oooo  "$$$o$$$$$$$$$"""
+                        ""$$$$$$$oo $$$$$$$$$$
+                                """"$$$$$$$$$$$
+                                    $$$$$$$$$$$$
+                                     $$$$$$$$$$"
+                                      "$$$""
+    </pre
+      >
+
+      <pre>
+      <h1><br>  (^_^) </h1>
+    </pre>
+
+      <pre
+        style="font-size:6px; text-align:left; color:lime"
+        onclick="tank(event)"
+      >
+
+
+
+
+
+
+
+                                                     _..----.._
+                                                    ]_.--._____[
+                                                  ___|'--'__..|--._
+                              __               """    ;            :
+                            ()_ """"---...__.'""!":  /    ___       :
+                               """---...__\]..__] | /    [ 0 ]      :
+                                          """!--./ /      """        :
+                                   __  ...._____;""'.__________..--..:_
+                                  /  !"''''''!''''''''''|''''/' ' ' ' \"--..__  __..
+                                 /  /.--.    |          |  .'          \' ' '.""--.{'.
+             _...__            >=7 //.-.:    |          |.'             \ ._.__  ' '""'.
+          .-' /    """"----..../ "">==7-.....:______    |                \| |  "";.;-"> \
+          """";           __.."   .--"/"""""----...."""""----.....H_______\_!....'----""""]
+        _..---|._ __..--""       _!.-=_.            """""""""""""""                   ;"""
+       /   .-";-.'--...___     ." .-""; ';""-""-...^..__...-v.^___,  ,__v.__..--^"--""-v.^v,
+      ;   ;   |'.         """-/ ./;  ;   ;\P.        ;   ;        """"____;  ;.--""""// '""<,
+      ;   ;   | 1            ;  ;  '.: .'  ;<   ___.-'._.'------""""""____'..'.--""";;'  o ';
+      '.   \__:/__           ;  ;--""()_   ;'  /___ .-" ____---""""""" __.._ __._   '>.,  ,/;
+        \   \    /"""<--...__;  '_.-'/; ""; ;.'.'  "-..'    "-.      /"/    `__. '.   "---";
+         '.  'v ; ;     ;;    \  \ .'  \ ; ////    _.-" "-._   ;    : ;   .-'__ '. ;   .^".'
+           '.  '; '.   .'/     '. `-.__.' /;;;   .o__.---.__o. ;    : ;   '"";;""' ;v^" .^
+             '-. '-.___.'<__v.^,v'.  '-.-' ;|:   '    :      ` ;v^v^'.'.    .;'.__/_..-'
+                '-...__.___...---""'-.   '-'.;\     'WW\     .'_____..>."^"-""""""""    fsc
+                                      '--..__ '"._..'  '"-;;"""
+                                             """---'""""""
+      </pre>
+
+      <pre>
+      <h1><br>  <°)))><  </h1>
+    </pre>
+
+      <pre
+        style="font-size:6px; text-align:left; color:white"
+        onclick="horse(event)"
+      >
+                                                      `T",.`-,
+                                                     '8, :.
+                                              `""`oooob."T,.
+                                            ,-`".)O;8:doob.'-.
+                                     ,..`'.'' -dP()d8O8Yo8:,..`,
+                                   -o8b-     ,..)doOO8:':o; `Y8.`,
+                                  ,..bo.,.....)OOO888o' :oO.  ".  `-.
+                                , "`"d....88OOOOO8O88o  :O8o;.    ;;,b
+                               ,dOOOOO""""""""O88888o:  :O88Oo.;:o888d
+                               ""888Ob...,-- :o88O88o:. :o'"""""""Y8OP
+                               d8888.....,.. :o8OO888:: ::
+                              "" .dOO8bo`'',,;O88O:O8o: ::,
+                                 ,dd8".  ,-)do8O8o:"""; :::
+                                 ,db(.  T)8P:8o:::::    :::
+                                 -"",`(;O"KdOo::        :::
+                                   ,K,'".doo:::'        :o:
+                                    .doo:::"""::  :.    'o:
+        ,..            .;ooooooo..o:"""""     ::;. ::;.  'o.
+   ,, "'    ` ..   .d;o:"""'                  ::o:;::o::  :;
+   d,         , ..ooo::;                      ::oo:;::o"'.:o
+  ,d'.       :OOOOO8Oo::" '.. .               ::o8Ooo:;  ;o:
+  'P"   ;  ;.OPd8888O8::;. 'oOoo:.;..         ;:O88Ooo:' O"'
+  ,8:   o::oO` 88888OOo:::  o8O8Oo:::;;     ,;:oO88OOo;  '
+ ,YP  ,::;:O:  888888o::::  :8888Ooo::::::::::oo888888o;. ,
+ ',d: :;;O;:   :888888::o;  :8888888Ooooooooooo88888888Oo; ,
+ dPY:  :o8O     YO8888O:O:;  O8888888888OOOO888"" Y8o:O88o; ,
+,' O:  'ob`      "8888888Oo;;o8888888888888'"'     `8OO:.`OOb .
+'  Y:  ,:o:       `8O88888OOoo"""""""""""'           `OOob`Y8b`
+   ::  ';o:        `8O88o:oOoP                        `8Oo `YO.
+   `:   Oo:         `888O::oP                          88O  :OY
+    :o; 8oP         :888o::P                           do:  8O:
+   ,ooO:8O'       ,d8888o:O'                          dOo   ;:.
+   ;O8odo'        88888O:o'                          do::  oo.:
+  d"`)8O'         "YO88Oo'                          "8O:   o8b'
+ ''-'`"            d:O8oK  -hrr-                   dOOo'  :o":
+                   O:8o:b.                        :88o:   `8:,
+                   `8O:;7b,.                       `"8'     Y:
+                    `YO;`8b'
+                     `Oo; 8:.
+                      `OP"8.`
+                       :  Y8P
+                       `o  `,
+                        Y8bod.
+                        `""""'
+      </pre>
+
+      <pre>
+      <h1><br>  >-++('>  </h1>
+    </pre>
+
+      <pre
+        style="font-size:6px; text-align:left; color:cyan"
+        onclick="obelix(event)"
+      >
+
+
+
+                              _(_)
+                          .-*"    `.
+                          L_____   ."T  _
+                          :\  `,`:.`"\.' ;
+                          |_, _: : `.,+._:
+                         /;s; s'  \  ;P;_.
+                        .+*'  `_   `.J-  :
+                       :   *'._,*,  (J)-.*
+                       :      /""*+' (L)
+                  s..s()l-._.'--*"    `()  _
+            ___   _T$$o ;             T$bs$P-._
+  .-*'"*+.*"   "*"  d$b `          /   T$*Tb   `--*""*.
+ /        \        sP Ts `-.____.-'    dP  `*          `.
+(`         ,      /        .'                     _    `.\
+ \         :    _:       .'                     .'       `)
+  \         L_.' ;___   /                      /         /
+   `-.    .' ._.'_   ""**--..__         _    //         /
+      `"*/    /   \.*""*.  .-._""**--._: \.-'/         /
+        (((( :",  / .-. ;'  _ ""**--.._\ `-+        ,'
+        :.;: :"  :  *-' /  : ;          `:   `   _.-'
+         \:; ;._.'`._.-'`,  "           .',    :')
+         /;: ;     ;      `""**--..___ / /; ,,,::
+        : `'T                   /    \T /-;.',.':
+            ;     :            :      \"   "*T"*(
+       :          ;            ;       ;      \  ;
+       :   :      :                    :       ; :
+       ;   ;                  :                : :
+       :   :       ;          ;         ;      : :
+                   :          :         :      ; ;
+        \   \       \                   ;
+         `.  `.      \         ;              : /
+           `.  `.     `.       :     .'/.    /.'
+             `*-.`-.__  `-.     \   /.'\  ,.+'
+                 "*-._:-'  J__..-+-*"\  ; :
+                      ; -*'/          ; : ;
+                      :   :   [bug]   : ;
+                       \   `.         : |:
+                      .-`.__J.      .-; |;._ _.-**-.
+                   .--`-.___.-'-.  :.'`"'\_.' __..-*;
+               .*"( ___         : : `"""*-'.-'__...-'
+               ; .'`-._"*-._.--*' `"*----**""'
+               `***---+***'
+
+          </pre
+      >
+
+      <pre>
+      <h1><br>  <°)))><  </h1>
+    </pre>
+
+      <pre
+        style="font-size:40px; text-align:left; color:PapayaWhip"
+        onclick="andy(event)"
+      >
+    ___
+___/_  `.  .-"""-.
+\__,` | \-'  /   )`-')
+ U"") `"`    \  ((`"`
+ ___Y  ,    .'7 /|
+(_,___/...-` (_/_/ sk
+      </pre>
+    </div>
+
+    <!-- client.js will add boxes dynamicly here -->
+    <div id="boxesDiv"></div>
+    <div class="chat">
+      <div class="mine messages">
+        <div class="message last">
+          Heps Pioupiou, comment ça marche ton truc pour envoyer des messages !
+        </div>
+      </div>
+      <div class="date">
+        Fri 10:42
+      </div>
+      <div class="yours messages">
+        <div class="message">
+          Salut!
+        </div>
+        <div class="message">
+          C'est pas bien compliqué, tu fais comme tu as l'habitude... mais il faut que je te dise un truc...
+        </div>
+        <div class="message last">
+          ...la messagerie est en cours de développement... du coup tu peux envoyer des messages... mais ils seront tous transférés vers l'identifiant 'message', que tu peux consulter en te connectant avec cet identifiant ('message')...
+        </div>
+      </div>
+      <div class="date">
+        Sun 20:30
+      </div>
+      <div class="mine messages" id="mineLastMessages">
+        <div class="message">
+          Ah OK je crois que j'ai compris !
+        </div>
+        <div class="message last">
+          Il y a un truc cool... c'est que je peux t'envoyer des messages, et ils ne seront pas perdu... même si ils auront tendance à disparaître d'ici...
+        </div>
+      </div>
+    </div>
+    <input type="file" accept="image/*" capture="environment">
+    <div class="sendMessage">
+      <div class="messageBox" id="msg" contenteditable>
+
+      </div>
+      <div class="sendButton" onClick="addMessage(document.querySelector('#msg'))">send</div>
+    </div>
+
+
+
+  </body>
+</html>

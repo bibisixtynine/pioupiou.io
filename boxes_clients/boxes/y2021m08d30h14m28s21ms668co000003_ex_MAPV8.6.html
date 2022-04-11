@@ -1,0 +1,131 @@
+<div style="font-size: 12px;">
+  <div>
+    // another map-v8.6... \\
+  </div>
+  <div>
+    <br />
+  </div>
+  <div>
+    addBox('MAPV8',myId)
+  </div>
+  <div>
+    setText('MAPV8',`
+  </div>
+  <div>&lt;div contenteditable="false" class="disable-select"&gt;</div>
+  <div>
+    &lt;div id='map' style='width:100%; height:500px'&gt;&lt;/div&gt;
+  </div>
+  <div>
+    <br />
+  </div>
+  <div>
+    &lt;div readonly id="menu"&gt;
+  </div>
+  <div>
+    <br />
+  </div>
+  <div>
+    &lt;input id="satellite-v9" type="radio" name="rtoggle"
+    value="satellite"&gt;
+  </div>
+  <div>
+    &lt;!-- See a list of Mapbox-hosted public styles at --&gt;
+  </div>
+  <div>
+    <span
+      >&lt;!-- https://docs.mapbox.com/api/maps/styles/#mapbox-styles
+      --&gt;</span
+    >
+  </div>
+  <div>
+    <span>&lt;label for="satellite-v9"&gt;satellite&lt;/label&gt;</span>
+  </div>
+  <div>
+    <span
+      >&lt;input id="light-v10" type="radio" name="rtoggle"
+      value="light"&gt;</span
+    >
+  </div>
+  <div>
+    <span>&lt;label for="light-v10"&gt;light&lt;/label&gt;</span>
+  </div>
+  <div>
+    <span
+      >&lt;input id="dark-v10" type="radio" name="rtoggle"
+      value="dark"&gt;</span
+    >
+  </div>
+  <div>
+    <span>&lt;label for="dark-v10"&gt;dark&lt;/label&gt;</span>
+  </div>
+  <div>
+    <span
+      >&lt;input checked id="streets-v11" type="radio" name="rtoggle"
+      value="streets"&gt;</span
+    >
+  </div>
+  <div>
+    <span>&lt;label for="streets-v11"&gt;streets&lt;/label&gt;</span>
+  </div>
+  <div>
+    <span
+      >&lt;input id="outdoors-v11" type="radio" name="rtoggle"
+      value="outdoors"&gt;</span
+    >
+  </div>
+  <div>
+    <span>&lt;label for="outdoors-v11"&gt;outdoors&lt;/label&gt;</span>
+  </div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div><span>&lt;/div&gt;&lt;/div&gt;</span><span>`)</span></div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div>
+    mapboxgl.accessToken =
+    'pk.eyJ1IjoiaWxib3VlZCIsImEiOiJja3N5Z2NtZWwxYnJ5MnZsZzIxOTU4bHlhIn0._u0R7dvLyvdDiSR6F5Hcdg'
+  </div>
+  <div><br /></div>
+  <div>const map = new mapboxgl.Map({</div>
+  <div>container: 'map',</div>
+  <div>// container ID</div>
+  <div>style: 'mapbox://styles/mapbox/streets-v11',</div>
+  <div>// style URL</div>
+  <div>center: [-96, 37.8],</div>
+  <div>// starting position</div>
+  <div>zoom: 3</div>
+  <div>// starting zoom</div>
+  <div>});</div>
+  <br>
+  <div>// Add geolocate control to the map.</div>
+  <div>map.addControl( new mapboxgl.GeolocateControl({</div>
+  <div>positionOptions: { enableHighAccuracy: true },</div>
+  <div>trackUserLocation: true,</div>
+  <div>showUserHeading: true }) );</div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div><span>map.addControl(new mapboxgl.FullscreenControl());</span></div>
+  <div>
+    <span><br /></span>
+  </div>
+  <div>
+    const layerList = document.getElementById('menu');
+  </div>
+  <div><br /></div>
+  <div>const inputs = layerList.getElementsByTagName('input');</div>
+  <div><br /></div>
+  <div>for (const input of inputs) {</div>
+  <div>input.onclick =</div>
+  <div>(layer) =&gt; {&nbsp;</div>
+  <div>document.activeElement.blur();</div>
+  <div>// avoid keyboard appears</div>
+  <div>
+    const layerId = layer.target.id; map.setStyle('mapbox://styles/mapbox/' +
+    layerId); }
+  </div>
+  <div><br /></div>
+  <div>}<br /></div>
+</div>
