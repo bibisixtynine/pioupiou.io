@@ -1,0 +1,73 @@
+<div>// LOTO V0.3 \\</div>
+<div>// corrige le risque \\</div>
+<div>// de tirer 2 fois \\</div>
+<div>// la même boule \\</div>
+<div>// et classe les boules \\</div>
+<div><br /></div>
+<div>nbBoules = 5</div>
+<div><br /></div>
+class Boule {
+<div>
+  <br />
+  <div>constructor(txt,color) {</div>
+  <div>this.txt = txt&nbsp;</div>
+  <div><br /></div>
+  <div>
+    &nbsp;this.sL = `&lt;span style='font-size:25px; background-color:${color};
+    color:white; padding:5px; margin:3px; border-radius:25px; font-weight:900;
+    border: solid 2px; border-color:${color};'&gt;`
+  </div>
+  <div><br /></div>
+  <div>this. sR = `&lt;/span&gt;` }</div>
+  <div><br /></div>
+  <div>toString() {</div>
+  <div>return this.sL +this.txt +this.sR }</div>
+  <div>
+    <br />
+    <div>}</div>
+  </div>
+</div>
+<div><br /></div>
+<div>let Boules = []</div>
+<div><br /></div>
+<div>for (i=1;i&lt;10;i++) Boules.push(new Boule(‘0’+i,’blue’))</div>
+<div><br /></div>
+<div>for (i=10;i&lt;50;i++) Boules.push(new Boule(i,’blue’))<br /></div>
+<div><br /></div>
+<div><br /></div>
+<div>let BoulesComplementaires = []</div>
+<div><br /></div>
+<div>
+  for (i=1;i&lt;10;i++)&nbsp;BoulesComplementaires.push( new
+  Boule(‘0’+i,’red’))<br />
+</div>
+<div><br /></div>
+<div>BoulesComplementaires.push( new Boule(‘10’,’red’))<br /></div>
+<div><br /></div>
+<div>let tirage = []</div>
+<div><br /></div>
+<div>for(i=0;i&lt; nbBoules;i++) {</div>
+<div>let tirageBoule = rnd(0,48-i)</div>
+<div>tirage.push(Boules[tirageBoule])</div>
+<div>Boules.splice(tirageBoule,1) }</div>
+<div><br /></div>
+<div>tirage.sort()</div>
+<div><br /></div>
+<div>let tirageComplementaire = BoulesComplementaires[rnd(0,9)]</div>
+<div>
+  <div style="line-height: 26px;"><br /></div>
+  <div style="line-height: 26px;">
+    <div style="line-height: 26px;">
+      <div style="line-height: 26px;">addBox(‘LOTO’,myId)</div>
+    </div>
+    <div style="line-height: 26px;">setText(‘LOTO’,’&lt;br&gt;’)</div>
+  </div>
+</div>
+<div><br /></div>
+<div>for(i=0;i&lt;nbBoules;i++)&nbsp;</div>
+<div>appendText(‘LOTO’, tirage[i])</div>
+<div><br /></div>
+<div>appendText(‘LOTO’,’&lt;br&gt;&lt;br&gt;‘)</div>
+<div><br /></div>
+<div>appendText(‘LOTO’, tirageComplementaire+'&lt;br&gt;&lt;br&gt; ')</div>
+<div><br /></div>
